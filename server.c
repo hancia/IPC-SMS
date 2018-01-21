@@ -12,14 +12,15 @@
 #include <stdbool.h>
 #include "const.h"
 
-#define NumberofUsers 3
+#define NumberofUsers 9
 #define NumberofGroups 3
+
 const int queueIdOffset = 2223411;
 int flag=1;
 
 struct User{
-    char password[20];
     char name[20];
+    char password[20];
     int queueKey;
     int queueId;
     bool logged;
@@ -86,7 +87,7 @@ void Login(struct Message *message, int ServerKey){
         }
         else{
             strcpy(returnmsg.result, MESSAGE_RESULT_ERROR);
-            strcpy(returnmsg.message, LOGGING_RESULT_WRONG_PASSWORD); 
+            strcpy(returnmsg.message, LOGGING_RESULT_WRONG_PASSWORD);
         }
     }
     else{
@@ -172,7 +173,7 @@ void JoinGroup(struct Message *message){
         msgsnd(tempqueueId,&returnmsg,MESSAGE_SIZE,0);
         printf("Nie ma takiej grupy %s\n", (*message).message);
     }
-    
+
 }
 void ActiveUsers(struct Message *message){
     struct Message returnmsg;

@@ -64,7 +64,8 @@ void SendMessage(char* name){
     printf("Odbiorca: \n");
     scanf("%s", message.reciever);
     printf("Tresc:\n");
-    scanf("%s",&temp_msg);
+    scanf("%c",&temp_msg);
+    fgets(temp_msg,2048,stdin);
     strcpy(message.message,temp_msg);
     message.type=SEND_NORMAL_MESSAGE;
     strcpy(message.sender,name);
@@ -141,7 +142,8 @@ void MessageGroup(char *name){
     printf("Grupa: \n");
     scanf("%s", message.reciever);
     printf("Tresc:\n");
-    scanf("%s",&temp_msg);
+    scanf("%c",&temp_msg);
+    fgets(temp_msg,2048,stdin);
     strcpy(message.message,temp_msg);
     message.type=SEND_MESSAGE_TO_GROUP;
     strcpy(message.sender,name);
